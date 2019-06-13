@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="fakedb.js"></script>
+    <script src="JSONpostagens.js"></script>
+    <title>Document</title>
+</head>
+
+<body class="bodyIndex">
+
+    <div class="mainContainer" id="maxcontainer">
+        <header class="cabecalho">
+            <img src="/Imagens/user.svg" alt="">
+            <h1 class="Gatherin">Gatherin</h1>
+
+            <h2 class="usuario" id="YU" onclick="sair()">User</h2>
+            <a href="login.html" id="sair" class="tampa">X</a>
+        </header>
+
+        <main class="principal">
+            <header class="menu">
+                <ul>
+                    <li onclick="paginainicial()"> Principal </li>
+                </ul>
+                <button onclick="postando()">Postar</button>
+            </header>
+
+            <div class="posts" id="allposts">
+
+                <div class="box-post">
+                    <figure id="containerFoto" onclick="VerPost()" onclick="completarTela()">
+                        <img src="https://i0.wp.com/www.emotioncard.com.br/wp-content/uploads/2017/07/previsoes-2016-horoscopo-amor-1.jpg?fit=630%2C350&ssl=1"
+                            alt="" class="box-img">
+                        <figcaption>Titulo</figcaption>
+                    </figure>
+                    <div> <img class="coracao" src="https://imagepng.org/wp-content/uploads/2017/10/coracao.png" alt="">
+                        <p class="curtidas"> 4 </p>
+                    </div>
+                    <div> <img class="coments"
+                            src="https://cdn.pixabay.com/photo/2017/04/20/01/43/bubble-2244298_960_720.png" alt="">
+                        <p class="ncoments"> 4 </p>
+                    </div>
+                </div>
+
+
+                <div class="box-post">
+                    <figure id="containerFoto" onclick="VerPost()" onclick="completarTela()">
+                        <img src="https://i0.wp.com/www.emotioncard.com.br/wp-content/uploads/2017/07/previsoes-2016-horoscopo-amor-1.jpg?fit=630%2C350&ssl=1"
+                            alt="" class="box-img">
+                        <figcaption>Titulo</figcaption>
+                    </figure>
+                    <div> <img class="coracao" src="https://imagepng.org/wp-content/uploads/2017/10/coracao.png" alt="">
+                        <p class="curtidas"> 3 </p>
+                    </div>
+                    <div> <img class="coments"
+                            src="https://cdn.pixabay.com/photo/2017/04/20/01/43/bubble-2244298_960_720.png" alt="">
+                        <p class="ncoments"> 4 </p>
+                    </div>
+                </div>
+
+
+                <div class="box-post">
+                    <figure id="containerFoto" onclick="VerPost()" onclick="completarTela()">
+                        <img src="https://i0.wp.com/www.emotioncard.com.br/wp-content/uploads/2017/07/previsoes-2016-horoscopo-amor-1.jpg?fit=630%2C350&ssl=1"
+                            alt="" class="box-img">
+                        <figcaption>Titulo</figcaption>
+                    </figure>
+                    <div> <img class="coracao" src="https://imagepng.org/wp-content/uploads/2017/10/coracao.png" alt="">
+                        <p class="curtidas"> 1 </p>
+                    </div>
+                    <div> <img class="coments"
+                            src="https://cdn.pixabay.com/photo/2017/04/20/01/43/bubble-2244298_960_720.png" alt="">
+                        <p class="ncoments"> 4 </p>
+                    </div>
+                </div>
+
+                <div class="box-post">
+                    <figure id="containerFoto" onclick="VerPost()" onclick="completarTela()">
+                        <img src="https://i0.wp.com/www.emotioncard.com.br/wp-content/uploads/2017/07/previsoes-2016-horoscopo-amor-1.jpg?fit=630%2C350&ssl=1"
+                            alt="" class="box-img">
+                        <figcaption>Titulo</figcaption>
+                    </figure>
+                    <div> <img class="coracao" src="https://imagepng.org/wp-content/uploads/2017/10/coracao.png" alt="">
+                        <p class="curtidas"> 2 </p>
+                    </div>
+                    <div> <img class="coments"
+                            src="https://cdn.pixabay.com/photo/2017/04/20/01/43/bubble-2244298_960_720.png" alt="">
+                        <p class="ncoments"> 4 </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+    </div>
+
+    <div id="mincontainer" class="tampa" onload="inicial()">
+
+        <div class="containerpost">
+            <div class="row">
+                <div id="msg" class="col-sm-10 offset-sm-1 ">
+                    <!--<div class="alert alert-warning">Contato não encontrado.</div>-->
+                </div>
+            </div>
+
+            <form id="form-post">
+                <button class="fechaPost" onclick="postado()">X</button>
+                <div class="inputs">
+                    <div class="form-group row">
+                        <div class="col-sm-4 tampa">
+                            <label for="inputId">Id</label>
+                            <input type="text" class="form-control" id="inputId" placeholder="ID" disabled>
+                        </div>
+                        <div class="col-sm-8">
+                            <label for="inputtitulo"></label>
+                            <input type="text" class="form-control" id="inputtitulo" required
+                                placeholder="Informe o titulo do post">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-5">
+                            <label for="inputImagem"></label>
+                            <input type="text" class="form-control" id="inputImagem" required
+                                placeholder="Copie e cole a URL (Endereço) de uma imagem">
+                        </div>
+                        <div class="col-sm-7">
+                            <label for="inputtexto"></label>
+                            <input type="text" class="form-control" id="inputtexto" required
+                                placeholder="Escreva sua ideia aqui! ">
+                        </div>
+                        <!-- <div class="col-sm-12">
+                            <label for="inputcurtidas"> curtidas (*)</label>
+                            <input type="text" class="form-control" id="inputcurtidas" required placeholder=" curtidas">
+                        </div> -->
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-12">
+                            <input type="button" class="btn btn-success confirmar" id="btnInsert" value="Inserir"
+                                onclick="inicial()">
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <div class="bodyIndex tampa" id="MostrarPost">
+
+        <div class="mainContainer" id="maxcontainercoment">
+            <header class="cabecalho">
+                <img src="/Imagens/user.svg" alt="">
+                <h1 class="Gatherin">Gatherin</h1>
+
+                <h2 class="usuario" id="YU" onclick="sair()">User</h2>
+                <a href="login.html" id="sair" class="tampa">X</a>
+            </header>
+
+            <main class="principal">
+                <header class="menu">
+                    <ul>
+                        <li onclick="paginainicial()"> Principal </li>
+                    </ul>
+
+                </header>
+
+                <div class="posts" id="telaPost">
+                    <div class="box-do-post">
+                        <img src="https://i0.wp.com/www.emotioncard.com.br/wp-content/uploads/2017/07/previsoes-2016-horoscopo-amor-1.jpg?fit=630%2C350&ssl=1"
+                            id="Imagem-do-post" alt="">
+                        <h4 id="autor-do-post">Autor: Zé</h4>
+                        <h4 id="publicacao-do-post">Publicação: 12/12/12</h4>
+                        <h1 id="titulo-do-post">TITULO</h1>
+                        <p id="texto-do-post">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus amet
+                            voluptate, corrupti ea architecto cum. Repellendus possimus molestiae sunt assumenda
+                            blanditiis consectetur minima rerum libero? Obcaecati voluptatum harum similique, in magnam,
+                            ullam quam, praesentium velit modi amet excepturi veniam illo?</p>
+                        <button id="btn-do-post" onclick="postandocoment()">+</button>
+                        <h1 id="section-comentarios">Comentários</h1>
+                    </div>
+
+                    <div id="div-comentarios">
+
+                        <h4 id="autor-do-comentario">Autor: <i>Zé</i></h4>
+                        <h4 id="publicacao-do-comentario">Publicação: 12/12/12</h4>
+                        <p id="comentario-do-post">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, aut?
+                        </p>
+                        <div> <img class="coracao-do-comentario"
+                                src="https://imagepng.org/wp-content/uploads/2017/10/coracao.png" alt="">
+                            <p class="curtidas" id="curtidasc"> 4 </p>
+                        </div>
+                    </div>
+
+                </div>
+            </main>
+        </div>
+
+
+        <div id="mincontainercoment" onload="inicial()">
+
+            <div class="containerpost">
+                <div class="row">
+                    <div id="msg" class="col-sm-10 offset-sm-1 ">
+                        <!--<div class="alert alert-warning">Contato não encontrado.</div>-->
+                    </div>
+                </div>
+
+                <form id="form-coment" class="tampa">
+                    <button class="fechaPost" onclick="postadocoment()">X</button>
+                    <div class="inputs">
+                        <div class="form-group row">
+                            <div class="col-sm-4 tampa">
+                                <label for="inputId">Id</label>
+                                <input type="text" class="form-control" id="inputId" placeholder="ID" disabled>
+                            </div>
+
+                            <div class="col-sm-7">
+                                <label for="inputtexto"></label>
+                                <input type="text" class="form-control" id="inputTextComent" required
+                                    placeholder="Comentário... ">
+                            </div>
+
+                        </div>
+                        <div class="form-group row">
+                            <div class="comentbtn">
+                                <input type="button" class="btn btn-success confirmar" id="btnInsertComent"
+                                    value="Inserir" onclick="inicial()">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+
+                <script>
+
+
+                    var user = '';
+
+                    for (i = 0; i < db.data.length; i++) {
+                        if ($("#inputNome").val() == db.data[i].nome || $("#inputNome").val() == db.data[i].email) {
+                            user = `<h2 class="usuario">${db.data[i].nome}</h2>`;
+                            userParaId = `${db.data[i].nome}`;
+                        }
+                    }
+
+
+                    document.getElementById('YU').innerHTML = user;
+
+                    var userid = userParaId;
+
+                    function postandocoment() {
+                        document.getElementById("maxcontainercoment").style.display = "none";
+                        document.getElementById("form-coment").style.display = "block";
+                    }
+
+                    function postadocoment() {
+                        document.getElementById("mincontainercoment").style.display = "none";
+                        document.getElementById("maxcontainercoment").style.display = "grid";
+                    }
+
+                    function sair() {
+                        document.getElementById("sair").style.display = "block";
+                    }
+
+
+
+                </script>
+            </div>
+
+            <script>
+
+                var posts = '';
+                var postCompleto = '';
+
+                for (i = 0; i < dbpost.postagens.length; i++) {
+                    posts += `<div class="box-post" id="${i}">
+                          <figure id="containerFoto" onclick="VerPost()" onclick="completarTela()" onclick="ind class="parent"> 
+                                 <img src="${ dbpost.postagens[i].Imagem}" alt="" class="box-img">
+                                 <figcaption id="tituloPostagemIncial">${ dbpost.postagens[i].titulo}</figcaption>
+                          </figure>
+                          <div > <img class="coracao" src="https://imagepng.org/wp-content/uploads/2017/10/coracao.png" alt=""> <p class="curtidas"> ${ dbpost.postagens[i].curtidas} </p> </div>
+                    <div > <img class="coments" src="https://cdn.pixabay.com/photo/2017/04/20/01/43/bubble-2244298_960_720.png" alt="">  <p class="ncoments"> ${ dbpost.postagens[i].coments} </p> </div>
+                      </div>`;
+                }
+
+                var user = '';
+
+                document.getElementById('YU').innerHTML = user;
+
+                document.getElementById('allposts').innerHTML = posts;
+
+                var userid = userParaId;
+
+                // COMPLETAR A TELA PARA VER A NOTÍCIA CERTA
+
+
+                var conteudo = '';
+                var divConteudo = '';
+                var indexPost = '0';
+
+                function paginainicial() {
+                    document.getElementById("MostrarPost").style.display = "none";
+                    document.getElementById("maxcontainer").style.display = "grid";
+                    window.scrollTo(0, 0);
+                }
+
+                function VerPost() {
+
+                    for (j = 0; j < dbpost.postagens.length; j++) {
+                        var div = document.getElementById(j);
+                        div.onclick = function () {
+
+
+
+                            document.getElementById("maxcontainer").style.display = "none";
+                            document.getElementById("MostrarPost").style.display = "grid";
+                            window.scrollTo(0, 0);
+
+                            postCompleto = `<div class="box-do-post">
+                                <img src="${ dbpost.postagens[this.id].Imagem}" id="Imagem-do-post" alt="">
+                                 <h4 id="autor-do-post">Autor: ${ dbpost.postagens[this.id].autor}</h4>
+                                    <h4 id="publicacao-do-post"> ${ dbpost.postagens[this.id].data}</h4>
+                                    <h1 id="titulo-do-post">${ dbpost.postagens[this.id].titulo}</h1>
+                                    <p id="texto-do-post">${ dbpost.postagens[this.id].texto}</p>
+                                 <button id="btn-do-post" onclick="postandocoment()">+</button>
+                            <h1 id="section-comentarios">Comentários</h1>` ;
+
+                            document.getElementById('telaPost').innerHTML = postCompleto;
+                        }
+                    }
+                }
+
+                function postando() {
+                    document.getElementById("maxcontainer").style.display = "none";
+                    document.getElementById("mincontainer").style.display = "block";
+                }
+
+                function postado() {
+                    document.getElementById("mincontainer").style.display = "none";
+                    document.getElementById("maxcontainer").style.display = "grid";
+                    window.scrollTo(0, 0);
+                }
+
+                function sair() {
+                    document.getElementById("sair").style.display = "block";
+                }
+
+
+
+            </script>
+</body>
+
+</html>

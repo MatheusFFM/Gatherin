@@ -1,0 +1,599 @@
+.tampa{
+    display: none;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.secun{
+    width: 100%;
+    background-color: linear-gradient(rgb(255, 191, 0),rgb(70, 64, 47)) ;
+    overflow: hidden;
+}
+
+.GridContainer{
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    grid-template-rows: 1fr;
+    grid-template-columns: 0.45fr 0.55fr;
+    grid-template-areas:
+                         "imagem form";
+    grid-gap: 0px;
+}
+
+.container{
+    width: 60%;
+    margin: auto auto;
+    grid-area: form;
+}
+
+.container h1{
+    width: 90%;
+    text-align: center;
+    color: rgba(42, 51, 100);
+    font-size: 50px;
+    margin: 0 0 30px;
+}
+
+.container .cadastro{
+    color: rgba(42, 51, 100);
+    height: 60px;
+    font-size: 20px;
+    border: solid 5px rgba(42, 51, 100);
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.container .cadastro:hover{
+    color: azure;
+    background-color: rgba(42, 51, 100);
+    border: solid 5px rgba(0, 0, 0, 0);
+}
+
+.container input{
+    background-color: rgb(250, 249, 249);
+    width: 90%;
+    height: 40px;
+    border-radius: 20px;
+    text-align: center;
+    margin: 5px auto;
+}
+
+::-webkit-input-placeholder{
+    color: rgba(42, 51, 100);
+    font-weight: bold;
+  }
+
+.esquerda{
+    background-image: linear-gradient(rgba(9, 8, 54, 0.6),rgba(9, 8, 54, 0.6)), url(/Imagens/TelaComputadorVertical.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+
+.esquerda h1{
+    width: 100%;
+    color: azure;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 60px;
+    text-align: center;
+    margin: 230px 0 0;
+}
+
+.esquerda p{
+    width: 100%;
+    color: azure;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+    text-align: center;
+}
+
+.esquerda button{
+    width: 50%;
+    height: 60px;
+    margin: 20px 150px;
+    border-radius: 20px;
+    color: azure;
+    font-size: 20px;
+    border: solid 5px azure;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.esquerda button:hover{
+    background-color: azure;
+    color: rgba(42, 51, 100);
+    cursor: pointer;
+}
+
+
+.mainContainer{
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    grid-template-rows: 0.15fr 1fr;
+    grid-template-columns: 0.15fr 0.7fr 0.15fr;
+    grid-template-areas: "header header header"
+                         ". main .";
+    grid-gap: 0px;
+}
+
+.bodyIndex{
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.7)), url("https://videohive.img.customer.envatousercontent.com/files/224595415/Binary%20Background.jpg?auto=compress%2Cformat&fit=crop&crop=top&max-h=8000&max-w=590&s=4f583a172421a76b41480a0b1107d0a6");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.cabecalho{
+    z-index: 2;
+    width: 100vw;
+    grid-area: header;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 3fr 3fr 1fr 1fr 1fr ;
+    grid-template-areas: "icon nome . registro entrar";
+    grid-gap: 0px;
+    background-color: rgba(42, 51, 100, 0.787);
+    box-shadow: rgb(37, 37, 37) 0.5em 0.5em 0.3em;
+}
+
+.cabecalho img{
+    grid-area: icon;
+    width: 60px;
+    height: 60px;
+    margin: 15px auto;
+}
+
+.cabecalho .Gatherin{
+    width: 100%;
+    text-align: center;
+    font-size: 50px;
+    grid-area: nome;
+    color: azure;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    margin: 15px 0;
+}
+
+.cabecalho button{
+    width: 130px;
+    height: 60px;
+    margin: 20px 150px;
+    border-radius: 20px;
+    color: azure;
+    font-size: 20px;
+    border: solid 5px azure;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.cabecalho button:hover{
+    background-color: azure;
+    color: rgba(42, 51, 100, 0.787);
+    cursor: pointer;
+}
+
+.cabecalho .usuario{
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+    grid-area: entrar;
+    color: azure;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    margin: 15px 0;
+    margin-right: 30px; 
+}
+
+.cabecalho .usuario:hover{
+    color: brown;
+    cursor: pointer;
+    transition: all .5s;
+}
+
+.cabecalho #sair{
+    text-decoration: none;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    position: fixed;
+    right: 0px;
+    color: azure;
+    font-size: 30px;
+    top: 45px;
+    margin: 30px 20px
+}
+
+.cabecalho #sair:hover{
+    color: brown;
+    transition: all .5s;
+}
+
+.cabecalho .registro{
+    position: fixed;
+    width: 130px;
+    grid-area: registro;
+}
+
+.cabecalho .entrar{
+    position: fixed;
+    width: 130px;
+    grid-area: entrar;
+}
+
+.principal{
+
+    overflow: scroll;
+    grid-area: main;
+    background-color: azure;
+}
+
+.principal .menu{
+    z-index: 2;
+    background-color: azure;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 0.3fr 0.1fr 0.3fr 0.1fr 0.2fr;
+    grid-template-areas: "principal . post . bot";
+    grid-gap: 0px;
+    height: 70px;
+    position: fixed;
+    width: 956px;
+    font-size: 30px;
+    color: rgba(42, 51, 100, 0.787);
+    font-family: Comic Sans MS, Comic Sans, cursive;
+}
+
+.menu ul{
+    display: inline;
+    text-decoration: none;
+    list-style: none;
+    grid-area: principal;
+}
+
+.menu li{
+    width: 80%;
+    float: right;
+    text-align: center;
+    margin-top: 10px;
+    border-bottom: 10px solid rgba(42, 51, 100, 0.787);
+    border-radius: 10px; 
+}
+
+.principal button{
+    float: right;
+    grid-area: bot;
+    border-style: none;
+    margin-top: 10px;
+    width: 130px;
+    height: 60px;
+    border-radius: 20px;
+    color: rgba(42, 51, 100, 0.787);
+    font-size: 20px;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.principal button:hover{
+    background-color: rgba(42, 51, 100, 0.787);
+    color: azure;
+    cursor: pointer;
+}
+
+.principal .menu li:hover{
+    cursor: pointer;
+    background-color: rgba(42, 51, 100, 0.787);
+    color: azure;
+}
+
+#containerFoto {
+    display: inline-block;
+    position: relative;
+
+  }
+
+.box-img{
+    width: 700px;
+    height: 300px;
+} 
+
+  #containerFoto figcaption {
+    width: 100%;
+    position: absolute;
+    top: 145px;
+    height: 100px;
+    font-size: 40px;
+    color: azure;
+    background-color: rgba(0, 0, 0, 0.589);
+    text-shadow: 0px 0px 5px black;
+  }
+
+.posts{
+    margin-top: 150px;
+}
+
+.box-post{
+    width: 100%;
+    text-align: center;
+    margin: 60px auto 0;
+}
+
+.parent:hover .box-img,
+.parent:focus .box-img {
+  transform: scale(1.05);
+  transition: all .5s;
+}
+
+.coracao{
+    width: 30px;
+    height: 30px;
+    float: left;
+    margin-left: 30px;
+}
+
+.coments{
+    width: 30px;
+    height: 30px;
+    float: left;
+    margin-left: 30px;
+}
+
+.curtidas{
+    color: rgba(42, 51, 100, 0.787);
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    float: left;
+}
+
+.ncoments{
+    color: rgba(42, 51, 100, 0.787);
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    float: left;
+}
+
+
+/* POST */
+
+.containerpost{
+    position: fixed;
+    background-color: rgb(27, 27, 27);
+    width: 100%;
+    height: 100%;
+    /* overflow: hidden; */
+}
+
+#form-post{
+    background-color: azure;
+    width: 70%;
+    height: 75%;
+    margin: 80px auto;
+    border: solid 20px rgba(37, 43, 82, 0.787);
+    border-radius: 10px;
+}
+
+.fechaPost{
+    color: rgba(37, 43, 82, 0.787);
+    font-size: 60px;
+    float: right;
+    width: 60px;
+    height: 60px;
+    background-color: azure;
+    border-style: none;
+}
+
+.fechaPost:hover{
+    color: red;
+    transition: all .5s;
+}
+
+#form-post input{
+    display: block;
+    margin: 0 auto 20px;
+    width: 500px;
+    height: 70px;
+    border-radius: 10px; 
+    border-style: none;
+}
+
+#form-post .confirmar{
+    border-radius: 20px;
+    width: 250px;
+    height: 50px;
+    background-color: rgba(37, 43, 82, 0.787);
+    color: azure;
+    border-style: none;
+}
+
+
+#form-post .confirmar:hover{
+    background-color: azure;
+    color: rgba(37, 43, 82, 0.787);
+    border: solid 5px rgba(37, 43, 82, 0.787);
+    transition: all .5s;
+}
+
+.inputs{
+    margin-top: 100px;
+}
+
+/* PAGINA QUE MOSTRA O POST */
+
+.box-do-post{
+    display: grid;
+    grid-template-rows: 350px 100px 100px 100px 50px 0.5fr 70px 70px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "img img"
+                         ". ."                    
+                         "autor publicacao"
+                         "titulo titulo"
+                         ". ."
+                         "texto texto"
+                         "comentario ."
+                         "btn .";
+    grid-gap: 0px;
+}
+
+#Imagem-do-post{
+    grid-area: img;
+    width: 70%;
+    margin: 0 auto;
+    box-shadow: 0px 0px 1em rgba(29, 35, 70, 0.787);
+    -webkit-box-shadow: 0px 0px 1em rgba(29, 35, 70, 0.787);
+    -moz-box-shadow: 0px 0px 1em rgba(29, 35, 70, 0.787);
+    border: solid 4px rgba(29, 35, 70, 0.445);
+    border-radius: 30px;
+}
+
+#autor-do-post{
+    float: left;
+    grid-area: autor;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    font-size: 20px;
+    color: #333;
+    font-style: italic;
+    margin-left: 30px; 
+}
+
+#publicacao-do-post{
+    grid-area: publicacao;
+    float: right;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    font-size: 20px;
+    color: #333;
+    font-style: italic;
+    margin-left: 200px;
+    width: 100%;
+}
+
+#titulo-do-post{
+    grid-area: titulo;
+    width: 100%;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #333;
+    font-size: 60px;
+}
+
+#texto-do-post{
+    grid-area: texto;
+    color: #333;
+    width: 900px;
+    padding: 30px;
+    text-align: justify;
+}
+
+#btn-do-post{
+    grid-area: btn;
+    margin-left: 30px;
+    width: 100px;
+    border: rgba(37, 43, 82, 0.787) 3px solid;
+}
+
+#section-comentarios{
+    grid-area: comentario;
+    width: 100%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #333;
+    font-size: 30px;
+    margin-left: 30px;
+}
+
+#div-comentarios{
+    grid-area: divcomentario;
+    display: grid;
+    grid-template-rows: 100px 1fr 100px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "autorc publicacaoc"
+                         "textoc textoc"
+                         "coracaoc coracaoc";
+    grid-gap: 0px;
+
+    border: solid 4px rgba(29, 35, 70, 0.445);
+    padding: 20px;
+    margin: 50px 15px;
+}
+
+#autor-do-comentario{
+    grid-area: autorc;
+    float: left;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    font-size: 16px;
+    color: #333;
+    font-style: italic;
+    margin-left: 30px; 
+}
+
+#publicacao-do-comentario{
+    grid-area: publicacaoc;
+    float: right;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    font-size: 16px;
+    color: #333;
+    font-style: italic;
+    margin-left: 200px;
+    width: 100%;
+}
+
+#comentario-do-post{
+    grid-area: textoc;
+    color: #333;
+    width: 900px;
+    padding: 30px;
+    text-align: justify;
+}
+
+.coracao-do-comentario{
+    grid-area: coracaoc;
+    width: 20px;
+    height: 20px;
+    margin-left: 30px;
+}
+
+#curtidasc{
+    margin-left: 70px;
+}
+
+/* POSTAR COMENTÁRIO */
+
+#form-coment{
+    background-color: azure;
+    width: 70%;
+    height: 75%;
+    margin: 80px auto;
+    border: solid 20px rgba(37, 43, 82, 0.787);
+    border-radius: 10px;
+}
+
+#inputTextComent{
+    display: block;
+    margin: 0 auto 20px;
+    width: 500px;
+    height: 200px;
+    border-radius: 10px; 
+    border-style: none;
+}
+
+.comentbtn{
+    width: 100%;
+}
+
+#btnInsertComent{
+    display: block;
+    border-radius: 20px;
+    width: 250px;
+    height: 50px;
+    background-color: rgba(37, 43, 82, 0.787);
+    color: azure;
+    border-style: none;
+    margin: 0 auto;
+}
+
+
+#btnInsertComent:hover{
+    background-color: azure;
+    color: rgba(37, 43, 82, 0.787);
+    border: solid 5px rgba(37, 43, 82, 0.787);
+    transition: all .5s;
+}
+
+/* OUTROS */
+
+#containerFoto:hover{
+    cursor: pointer;
+}

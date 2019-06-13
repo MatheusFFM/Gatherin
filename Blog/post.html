@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Lab Fakedbpost</title>
+</head>
+
+<div id="mincontainer" onload="inicial()">
+
+    <div class="containerpost">
+        <div class="row">
+            <div id="msg" class="col-sm-10 offset-sm-1 ">
+                <!--<div class="alert alert-warning">Contato não encontrado.</div>-->
+            </div>
+        </div>
+
+        <form id="form-post">
+            <button class="fechaPost">X</button>
+            <div class="inputs">
+            <div class="form-group row">
+                <div class="col-sm-4 tampa">
+                    <label for="inputId">Id</label>
+                    <input type="text" class="form-control" id="inputId" placeholder="ID" disabled>
+                </div>
+                <div class="col-sm-8">
+                    <label for="inputtitulo"></label>
+                    <input type="text" class="form-control" id="inputtitulo" required placeholder="Informe o titulo do post">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-5">
+                    <label for="inputImagem"></label>
+                    <input type="text" class="form-control" id="inputImagem" required placeholder="Copie e cole a URL (Endereço) de uma imagem">
+                </div>
+                <div class="col-sm-7">
+                    <label for="inputtexto"></label>
+                    <input type="text" class="form-control" id="inputtexto" required placeholder="Escreva sua ideia aqui! ">
+                </div>
+                <!-- <div class="col-sm-12">
+                    <label for="inputcurtidas"> curtidas (*)</label>
+                    <input type="text" class="form-control" id="inputcurtidas" required placeholder=" curtidas">
+                </div> -->
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-12">
+                    <input type="button" class="btn btn-success confirmar" id="btnInsert" value="Inserir" onclick="inicial()">
+                </div>
+            </div>
+        </div>
+        </form>
+
+        <div class="row ">
+            <div class="col-sm-12">
+                <table id="grid-contatos" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">titulo</th>
+                            <th scope="col">Imagem</th>
+                            <th scope="col">E-mail</th>
+                            <th scope="col">curtidas</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-contatos">
+                        <tr>
+                            <td scope="row">1</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="JSONpostagens.js"></script>
+
+    <script>
+        function exibeContatoss() {
+            // Remove todas as linhas do corpo da tabela
+            $("#table-contatos").html("");
+
+            // Popula a tabela com os registros do banco de dados
+            for (i = 0; i < dbpost.postagens.length; i++) {
+                let contato = dbpost.postagens[i];
+                $("#table-contatos").append(`<tr><td scope="row">${contato.id}</td><td>${contato.titulo}</td><td>${contato.texto}</td><td>${contato.Imagem}</td><td>${contato.curtidas}</td></tr>`);
+            }
+        }
+
+        function inicial() {
+            // Adiciona funções para tratar os eventos 
+            $("#btnInsert").click(function () {
+                // // Verfica se o formulário está preenchido corretamente
+                // if (!$('#form-contato')[0].checkValidity()) {
+                //     displayMessage("Preencha o formulário corretamente.");
+                //     return;
+                // }
+
+                // Obtem os valores dos campos do formulário
+                let campotitulo = $("#inputtitulo").val();
+                let campoImagem = $("#inputImagem").val();
+                let campotexto = $('#inputtexto').val();
+                let campocurtidas = $('#inputcurtidas').val();
+                let contato = { titulo: campotitulo, Imagem: campoImagem, texto: campotexto, curtidas: campocurtidas };
+
+                insertContato(contato);
+
+                // Reexibe os contatos
+                exibeContatoss();
+
+                // // Limpa o formulario
+                // $("#form-contato")[0].reset();
+            });
+
+            // Intercepta o click do botão Alterar
+            $("#btnUpdate").click(function () {
+                // Obtem os valores dos campos do formulário
+                let campoId = $("#inputId").val();
+                if (campoId == "") {
+                    displayMessage("Selecione um contato para ser alterado.");
+                    return;
+                }
+                let campotitulo = $("#inputtitulo").val();
+                let campoImagem = $("#inputImagem").val();
+                let campotexto = $("#inputtexto").val();
+                let campocurtidas = $('#inputcurtidas').val();
+                let contato = { ntitulo: campotitulo, Imagem: campoImagem, texto: campotexto, curtidas: campocurtidas };
+
+                updateContato(parseInt(campoId), contato);
+
+                // Reexibe os contatos
+                exibeContatoss();
+
+                // Limpa o formulario
+                $("#form-contato")[0].reset();
+            });
+
+            // Intercepta o click do botão Excluir
+            $("#btnDelete").click(function () {
+                let campoId = $("#inputId").val();
+                if (campoId == "") {
+                    displayMessage("Selecione um contato a ser excluído.");
+                    return;
+                }
+                deleteContato(parseInt(campoId));
+
+                // Reexibe os contatos
+                exibeContatoss();
+
+                // Limpa o formulario
+                $("#form-contato")[0].reset();
+            });
+
+            // Intercepta o click do botão Listar Contatos
+            $("#btnClear").click(function () {
+                $("#form-contato")[0].reset();
+            });
+
+            // Oculta a mensagem de aviso após alguns segundos
+            $('#msg').bind("DOMSubtreeModified", function () {
+                window.setTimeout(function () {
+                    $(".alert").fadeTo(500, 0).slideUp(500, function () {
+                        $(this).remove();
+                    });
+                }, 5000);
+            });
+
+            // Preenche o formulário quando o usuario clicar em uma linha da tabela 
+            $("#grid-contatos").on("click", "tr", function (e) {
+                let linhaContato = this;
+                $("#inputId").val(linhaContato.childNodes[0].firstChild.nodeValue);
+                $("#inputtitulo").val(linhaContato.childNodes[1].firstChild.nodeValue);
+                $("#inputImagem").val(linhaContato.childNodes[2].firstChild.nodeValue);
+                $("#inputtexto").val(linhaContato.childNodes[3].firstChild.nodeValue);
+                $("#inputcurtidas").val(linhaContato.childNodes[4].firstChild.nodeValue);
+            });
+
+            exibeContatoss();
+        }
+    </script>
+</body>
+
+</html>
