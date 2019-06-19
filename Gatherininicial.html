@@ -9,8 +9,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="fakedb.js"></script>
     <script src="JSONpostagens.js"></script>
-    <script src="comentarios.js"></script>
-    <link rel="shortcut icon" href="/Imagens/gatherinlogosenfundo.png">
     <title>Document</title>
 </head>
 
@@ -18,9 +16,9 @@
 
     <div class="mainContainer" id="maxcontainer">
         <header class="cabecalho">
-            <img src="/Imagens/gatherinlogosenfundo.png" alt="">
+            <img src="/Imagens/user.svg" alt="">
             <h1 class="Gatherin">Gatherin</h1>
-            
+
             <h2 class="usuario" id="YU" onclick="sair()">User</h2>
             <a href="login.html" id="sair" class="tampa">X</a>
         </header>
@@ -30,7 +28,6 @@
                 <ul>
                     <li onclick="paginainicial()"> Principal </li>
                 </ul>
-               <a href="https://github.com/MatheusFFM/Gatherin" target="_blank" > <button id="github">GitHub</button></a>
                 <button onclick="postando()">Postar</button>
             </header>
 
@@ -42,10 +39,7 @@
                             alt="" class="box-img">
                         <figcaption>Titulo</figcaption>
                     </figure>
-                    <div> <img class="coracao" id="descurtido" src="/Imagens/coracaopreto.png" onclick="curtida()"
-                            alt="">
-                        <img class="coracao coracaovermelho tampa" id="curtido" src="/Imagens/coracao.png"
-                            onclick="curtida()" alt="">
+                    <div> <img class="coracao" src="https://imagepng.org/wp-content/uploads/2017/10/coracao.png" alt="">
                         <p class="curtidas"> 4 </p>
                     </div>
                     <div> <img class="coments"
@@ -61,10 +55,7 @@
                             alt="" class="box-img">
                         <figcaption>Titulo</figcaption>
                     </figure>
-                    <div> <img class="coracao" id="descurtido" src="/Imagens/coracaopreto.png" onclick="curtida()"
-                            alt="">
-                        <img class="coracao coracaovermelho tampa" id="curtido" src="/Imagens/coracao.png"
-                            onclick="curtida()" alt="">
+                    <div> <img class="coracao" src="https://imagepng.org/wp-content/uploads/2017/10/coracao.png" alt="">
                         <p class="curtidas"> 3 </p>
                     </div>
                     <div> <img class="coments"
@@ -80,10 +71,7 @@
                             alt="" class="box-img">
                         <figcaption>Titulo</figcaption>
                     </figure>
-                    <div> <img class="coracao" id="descurtido" src="/Imagens/coracaopreto.png" onclick="curtida()"
-                            alt="">
-                        <img class="coracao coracaovermelho tampa" id="curtido" src="/Imagens/coracao.png"
-                            onclick="curtida()" alt="">
+                    <div> <img class="coracao" src="https://imagepng.org/wp-content/uploads/2017/10/coracao.png" alt="">
                         <p class="curtidas"> 1 </p>
                     </div>
                     <div> <img class="coments"
@@ -98,10 +86,7 @@
                             alt="" class="box-img">
                         <figcaption>Titulo</figcaption>
                     </figure>
-                    <div> <img class="coracao" id="descurtido" src="/Imagens/coracaopreto.png" onclick="curtida()"
-                            alt="">
-                        <img class="coracao coracaovermelho tampa" id="curtido" src="/Imagens/coracao.png"
-                            onclick="curtida()" alt="">
+                    <div> <img class="coracao" src="https://imagepng.org/wp-content/uploads/2017/10/coracao.png" alt="">
                         <p class="curtidas"> 2 </p>
                     </div>
                     <div> <img class="coments"
@@ -124,8 +109,8 @@
                 </div>
             </div>
 
-            <button class="fechaPost" onclick="postado()">X</button>
             <form id="form-post">
+                <button class="fechaPost" onclick="postado()">X</button>
                 <div class="inputs">
                     <div class="form-group row">
                         <div class="col-sm-4 tampa">
@@ -137,15 +122,11 @@
                             <input type="text" class="form-control" id="inputtitulo" required
                                 placeholder="Informe o titulo do post">
                         </div>
-                        <div class="col-sm-8">
-                            <label for="inputtitulo"></label>
-                            <input type="text" class="form-control" id="inputautor" required placeholder="Usuário">
-                        </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-5">
                             <label for="inputImagem"></label>
-                            <input type="url" class="form-control" id="inputImagem" required
+                            <input type="text" class="form-control" id="inputImagem" required
                                 placeholder="Copie e cole a URL (Endereço) de uma imagem">
                         </div>
                         <div class="col-sm-7">
@@ -153,11 +134,15 @@
                             <input type="text" class="form-control" id="inputtexto" required
                                 placeholder="Escreva sua ideia aqui! ">
                         </div>
+                        <!-- <div class="col-sm-12">
+                            <label for="inputcurtidas"> curtidas (*)</label>
+                            <input type="text" class="form-control" id="inputcurtidas" required placeholder=" curtidas">
+                        </div> -->
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-12">
-                            <input type="button" class="btn btn-success confirmar" id="btnInsertPost" value="Inserir"
-                                onclick="addpost()">
+                            <input type="button" class="btn btn-success confirmar" id="btnInsert" value="Inserir"
+                                onclick="inicial()">
                         </div>
                     </div>
                 </div>
@@ -170,7 +155,7 @@
 
         <div class="mainContainer" id="maxcontainercoment">
             <header class="cabecalho">
-                <img src="/Imagens/gatherinlogosenfundo.png" alt="">
+                <img src="/Imagens/user.svg" alt="">
                 <h1 class="Gatherin">Gatherin</h1>
 
                 <h2 class="usuario" id="YU" onclick="sair()">User</h2>
@@ -186,36 +171,32 @@
                 </header>
 
                 <div class="posts" id="telaPost">
-                    <div id="telaPostMesmo">
-                        <div class="box-do-post">
-                            <img src="https://i0.wp.com/www.emotioncard.com.br/wp-content/uploads/2017/07/previsoes-2016-horoscopo-amor-1.jpg?fit=630%2C350&ssl=1"
-                                id="Imagem-do-post" alt="">
-                            <h4 id="autor-do-post">Autor: Zé</h4>
-                            <h4 id="publicacao-do-post">Publicação: 12/12/12</h4>
-                            <h1 id="titulo-do-post">TITULO</h1>
-                            <p id="texto-do-post">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus
-                                amet
-                                voluptate, corrupti ea architecto cum. Repellendus possimus molestiae sunt assumenda
-                                blanditiis consectetur minima rerum libero? Obcaecati voluptatum harum similique, in
-                                magnam,
-                                ullam quam, praesentium velit modi amet excepturi veniam illo?</p>
-                            <button id="btn-do-post" onclick="postandocoment()">+</button>
-                            <h1 id="section-comentarios">Comentários</h1>
-                        </div>
+                    <div class="box-do-post">
+                        <img src="https://i0.wp.com/www.emotioncard.com.br/wp-content/uploads/2017/07/previsoes-2016-horoscopo-amor-1.jpg?fit=630%2C350&ssl=1"
+                            id="Imagem-do-post" alt="">
+                        <h4 id="autor-do-post">Autor: Zé</h4>
+                        <h4 id="publicacao-do-post">Publicação: 12/12/12</h4>
+                        <h1 id="titulo-do-post">TITULO</h1>
+                        <p id="texto-do-post">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus amet
+                            voluptate, corrupti ea architecto cum. Repellendus possimus molestiae sunt assumenda
+                            blanditiis consectetur minima rerum libero? Obcaecati voluptatum harum similique, in magnam,
+                            ullam quam, praesentium velit modi amet excepturi veniam illo?</p>
+                        <button id="btn-do-post" onclick="postandocoment()">+</button>
+                        <h1 id="section-comentarios">Comentários</h1>
                     </div>
-                </div>
-                <div id="div-comentarios">
-                    <div class="area-coments">
+
+                    <div id="div-comentarios">
+
                         <h4 id="autor-do-comentario">Autor: <i>Zé</i></h4>
                         <h4 id="publicacao-do-comentario">Publicação: 12/12/12</h4>
-                        <p id="comentario-do-post">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta,
-                            aut?
+                        <p id="comentario-do-post">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, aut?
                         </p>
-                        <div> <img class="coracao-do-comentario" src="/Imagens/coracaopreto.png" onclick="curtida()"
-                                alt="">
+                        <div> <img class="coracao-do-comentario"
+                                src="https://imagepng.org/wp-content/uploads/2017/10/coracao.png" alt="">
                             <p class="curtidas" id="curtidasc"> 4 </p>
                         </div>
                     </div>
+
                 </div>
             </main>
         </div>
@@ -230,10 +211,8 @@
                     </div>
                 </div>
 
-                <button class="fechaPost" onclick="postadocoment()">X</button>
-
-                <form id="form-coment">
-
+                <form id="form-coment" class="tampa">
+                    <button class="fechaPost" onclick="postadocoment()">X</button>
                     <div class="inputs">
                         <div class="form-group row">
                             <div class="col-sm-4 tampa">
@@ -247,17 +226,11 @@
                                     placeholder="Comentário... ">
                             </div>
 
-                            <div class="col-sm-7">
-                                <label for="inputtexto"></label>
-                                <input type="text" class="form-control" id="inputNomeComent" required
-                                    placeholder="Nome: ">
-                            </div>
-
                         </div>
                         <div class="form-group row">
                             <div class="comentbtn">
                                 <input type="button" class="btn btn-success confirmar" id="btnInsertComent"
-                                    value="Inserir" onclick="inserircoment()">
+                                    value="Inserir" onclick="inicial()">
                             </div>
                         </div>
                     </div>
@@ -265,191 +238,105 @@
 
 
                 <script>
-
-
                     var user = '';
-                    var userParaId = '';
-
                     for (i = 0; i < db.data.length; i++) {
                         if ($("#inputNome").val() == db.data[i].nome || $("#inputNome").val() == db.data[i].email) {
                             user = `<h2 class="usuario">${db.data[i].nome}</h2>`;
                             userParaId = `${db.data[i].nome}`;
                         }
                     }
-
+                    document.getElementById('YU').innerHTML = user;
                     var userid = userParaId;
-
                     function postandocoment() {
                         document.getElementById("maxcontainercoment").style.display = "none";
-                        document.getElementById("mincontainercoment").style.display = "block";
-                    };
-
+                        document.getElementById("form-coment").style.display = "block";
+                    }
                     function postadocoment() {
                         document.getElementById("mincontainercoment").style.display = "none";
                         document.getElementById("maxcontainercoment").style.display = "grid";
                     }
-
                     function sair() {
                         document.getElementById("sair").style.display = "block";
                     }
-
                 </script>
             </div>
 
             <script>
-
                 var posts = '';
                 var postCompleto = '';
-                var divComentario = '';
-                var Opost = '';
-                var i = 0;
-
                 for (i = dbpost.postagens.length - 1; i >= 0; i--) {
                     posts += `<div class="box-post" id="${i}">
                           <figure id="containerFoto" onclick="VerPost()" onclick="completarTela()" onclick="ind class="parent"> 
                                  <img src="${ dbpost.postagens[i].Imagem}" alt="" class="box-img">
                                  <figcaption id="tituloPostagemIncial">${ dbpost.postagens[i].titulo}</figcaption>
                           </figure>
-                          <div> <div id="cinza"> <img class="coracao" id="${i}" src="/Imagens/coracao.png" onclick="curtida()" alt=""> </div> <p class="curtidas" id="Ncurtidas${i}"> ${dbpost.postagens[i].curtidas} </p> </div>
-                            <div > <img class="coments" src="https://cdn.pixabay.com/photo/2017/04/20/01/43/bubble-2244298_960_720.png" alt="">  <p class="ncoments"> ${ dbpost.postagens[i].coments} </p> </div>
+                          <div > <img class="coracao" id="${i}" src="/Imagens/coracaopreto.png" onclick="curtida()" alt=""> <p class="curtidas" id="Ncurtidas${i}"> ${dbpost.postagens[i].curtidas} </p> </div>
+                          <img class="coracao coracaovermelho tampa" id="curtido" src="/Imagens/coracao.png" onclick="curtida()"
+                            alt="">
+                    <div > <img class="coments" src="https://cdn.pixabay.com/photo/2017/04/20/01/43/bubble-2244298_960_720.png" alt="">  
                       </div>`;
                 }
-
-
-                // CURTIDAS 
-
-                function curtida() {
-
-                    for (j = 0; j < dbpost.postagens.length; j++) {
-                        var curtir = document.getElementById(j);
-                        curtir.onclick = function () {
-                            var thisid = this.id;
-                            dbpost.postagens[this.id].curtidas++;
-                            document.getElementById('Ncurtidas' + this.id).textContent = dbpost.postagens[this.id].curtidas;
-                            localStorage.setItem('dbpost', JSON.stringify(dbpost));
-                        }
-                    }
-                }
-
-
-                //INSERIR COMENTARIO 
-
                 var user = '';
-
+                document.getElementById('YU').innerHTML = user;
                 document.getElementById('allposts').innerHTML = posts;
-
                 var userid = userParaId;
-
                 // COMPLETAR A TELA PARA VER A NOTÍCIA CERTA
-
-
                 var conteudo = '';
                 var divConteudo = '';
                 var indexPost = '0';
-
                 function paginainicial() {
                     document.getElementById("MostrarPost").style.display = "none";
                     document.getElementById("maxcontainer").style.display = "grid";
                     window.scrollTo(0, 0);
                 }
-
                 function VerPost() {
-
-                    for (i = 0; i < dbpost.postagens.length; i++) {
-                        var div = document.getElementById(i);
+                    for (j = 0; j < dbpost.postagens.length; j++) {
+                        var div = document.getElementById(j);
                         div.onclick = function () {
-
                             document.getElementById("maxcontainer").style.display = "none";
                             document.getElementById("MostrarPost").style.display = "grid";
                             window.scrollTo(0, 0);
-
                             postCompleto = `<div class="box-do-post">
-                            <img src="${ dbpost.postagens[this.id].Imagem}" id="Imagem-do-post" alt="">
-                                <h4 id="autor-do-post">Autor: ${dbpost.postagens[this.id].autor}</h4>
-                                <h4 id="publicacao-do-post"> ${dbpost.postagens[this.id].data}</h4>
-                                <h1 id="titulo-do-post">${dbpost.postagens[this.id].titulo}</h1>
-                                <p id="texto-do-post">${dbpost.postagens[this.id].texto}</p>
-                                <button class="box-do-btn" onclick="postandocoment()">+</button>
-                                <h1 id="section-comentarios">Comentários</h1>`
-
-                                if(dbpost.postagens[this.id].comentarios == undefined){
-                                    dbpost.postagens[this.id].comentarios = [];
-                                }
-
-                                if(dbpost.postagens[this.id].comentarios != undefined){
-
-                            for (i = dbpost.postagens[this.id].comentarios.length - 1; i >= 0 ; i--) {
-
-                                divComentario += `<div class="area-coments">
-                        <h4 id="autor-do-comentario">Autor: <i>${dbpost.postagens[this.id].comentarios[i].autor}</i></h4>
-                        <h4 id="publicacao-do-comentario">Publicação: ${dbpost.postagens[this.id].comentarios[i].data}</h4>
-                        <p id="comentario-do-post">${dbpost.postagens[this.id].comentarios[i].texto} </p>
-                                                     </div>`
-                            }
-                        }
-
-                            document.getElementById('div-comentarios').innerHTML = divComentario;
+                                <img src="${ dbpost.postagens[this.id].Imagem}" id="Imagem-do-post" alt="">
+                                 <h4 id="autor-do-post">Autor: ${ dbpost.postagens[this.id].autor}</h4>
+                                    <h4 id="publicacao-do-post"> ${ dbpost.postagens[this.id].data}</h4>
+                                    <h1 id="titulo-do-post">${ dbpost.postagens[this.id].titulo}</h1>
+                                    <p id="texto-do-post">${ dbpost.postagens[this.id].texto}</p>
+                                 <button id="btn-do-post" onclick="postandocoment()">+</button>
+                            <h1 id="section-comentarios">Comentários</h1>` ;
                             document.getElementById('telaPost').innerHTML = postCompleto;
-
-                            divComentario = '';
                         }
                     }
                 }
+                function curtida() {
 
-                function inserircoment() {
-                    let tituloAtual = document.getElementById('titulo-do-post').innerHTML;
-                    for (i = 0; i < dbpost.postagens.length; i++) {
-                        if (tituloAtual == dbpost.postagens[i].titulo) {
-                            var indexDoTitulo = i;
-                            var banco = dbpost.postagens[indexDoTitulo];
-                        }
-                    }
-
-                    if ($("#inputTextComent").val() == "") {
-                        alert("Preencha o texto do comentário");
-                        return;
-                    }
-
-                    if ($("#inputNomeComent").val() == "") {
-                        alert("Preencha o nome");
-                        return;
-                    }
-
-                    var Novocoment = {
-                        "data": day + "/" + month + "/" + year,
-                        "texto": $("#inputTextComent").val(),
-                        "autor": $("#inputNomeComent").val(),
-                    }
-
-                    dbpost.postagens[indexDoTitulo].comentarios.push(Novocoment);
-                    dbpost.postagens[indexDoTitulo].coments++;
-
-
-                    localStorage.setItem('dbpost', JSON.stringify(dbpost));
-                    location.reload();
-
-                    VerPost()
-                    postadocoment();
-
-                }
-
-
+for (j = 0; j < dbpost.postagens.length; j++) {
+    var curtir = document.getElementById(j);
+    curtir.onclick = function () {
+        var thisid = this.id; 
+        dbpost.postagens[this.id].curtidas ++;
+        document.getElementById('Ncurtidas'+this.id).textContent = dbpost.postagens[this.id].curtidas;
+        
+        // var NN = parseInt(document.getElementById('Ncurtidas').textContent);
+        // NN += 1;
+        // var n = NN.toString();
+        // dbpost.postagens[0].curtidas = n;
+        // document.getElementById('Ncurtidas').innerHTML = dbpost.postagens[0].curtidas;
+    }
+}
+}
                 function postando() {
                     document.getElementById("maxcontainer").style.display = "none";
                     document.getElementById("mincontainer").style.display = "block";
                 }
-
                 function postado() {
                     document.getElementById("mincontainer").style.display = "none";
                     document.getElementById("maxcontainer").style.display = "grid";
+                    window.scrollTo(0, 0);
                 }
-
                 function sair() {
                     document.getElementById("sair").style.display = "block";
                 }
-
-
-
             </script>
 </body>
 

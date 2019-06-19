@@ -8,13 +8,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="fakedb.js"></script>
     <script src="JSONpostagens.js"></script>
+    <link rel="shortcut icon" href="/Imagens/gatherinlogosenfundo.png">
+
     <title>Document</title>
 </head>
 <body class="bodyIndex">
 
     <div class="mainContainer" id="maxcontainer">
     <header class="cabecalho">
-        <img src="/Imagens/user.svg" alt="">
+        <img src="/Imagens/gatherinlogosenfundo.png" alt="">
         <h1 class="Gatherin">Gatherin</h1>
             <h1><a href="Registro.html" > <button class="registro">Registrar</button> </a></h1>
             <h1><a href="login.html"> <button class="entrar">Entrar</button> </a></h1>
@@ -26,6 +28,7 @@
             <ul>
                 <li> Principal </li>
             </ul>
+            <a href="https://github.com/MatheusFFM/Gatherin" target="_blank" > <button id="github">GitHub</button></a>
            <a href="login.html"><button>Postar</button></a> 
         </header>
 
@@ -147,23 +150,26 @@
                         </table>
                     </div>
                 </div>
-            </div>
+            </div> 
         </div>
 
     <script>
          var posts = '';
-        for (i=0; i < dbpost.postagens.length; i++) {
-            posts += `<div class="box-post">
+        for (i = dbpost.postagens.length - 1; i >= 0; i--) {
+            posts += ` <a href="login.html">  <div class="box-post">
                           <figure id="containerFoto" class="parent"> 
                                  <img src="${ dbpost.postagens[i].Imagem }" alt="" class="box-img">
                                  <figcaption>${ dbpost.postagens[i].titulo }</figcaption>
                           </figure>
-                          <div > <img class="coracao" src="https://imagepng.org/wp-content/uploads/2017/10/coracao.png" alt=""> <p class="curtidas"> ${ dbpost.postagens[i].curtidas } </p> </div>
+                          <div > <img class="coracao" src="https://imagepng.org/wp-content/uploads/2017/10/coracao.png" alt="" onclick="curtir()"> <p class="curtidas"> ${ dbpost.postagens[i].curtidas } </p> </div>
                     <div > <img class="coments" src="https://cdn.pixabay.com/photo/2017/04/20/01/43/bubble-2244298_960_720.png" alt="">  <p class="ncoments"> ${ dbpost.postagens[i].coments } </p> </div>
-                      </div>`;
+                      </div>
+                    </a>`;
         }
 
         document.getElementById('allposts').innerHTML = posts;
+
+
 
        function postando(){
         document.getElementById("maxcontainer").style.display = "none";

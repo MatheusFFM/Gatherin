@@ -55,7 +55,7 @@ function init() {
 
        setTimeout( function() {
            window.location.href = "login.html";
-         }, 4000 );
+         }, 2000 );
     });
 
     // Intercepta o click do botão Alterar

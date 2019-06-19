@@ -13,6 +13,10 @@
     overflow: hidden;
 }
 
+body{
+    overflow-x: hidden;
+}
+
 .GridContainer{
     display: grid;
     width: 100vw;
@@ -220,8 +224,8 @@
 }
 
 .principal{
-
-    overflow: scroll;
+    overflow: auto;
+    overflow-x: hidden;
     grid-area: main;
     background-color: azure;
 }
@@ -236,7 +240,7 @@
     grid-gap: 0px;
     height: 70px;
     position: fixed;
-    width: 956px;
+    width: 70%;
     font-size: 30px;
     color: rgba(42, 51, 100, 0.787);
     font-family: Comic Sans MS, Comic Sans, cursive;
@@ -317,7 +321,7 @@
 
 .parent:hover .box-img,
 .parent:focus .box-img {
-  transform: scale(1.05);
+  transform: scale(1.05) !important;
   transition: all .5s;
 }
 
@@ -326,6 +330,10 @@
     height: 30px;
     float: left;
     margin-left: 30px;
+}
+
+.coracao:hover{
+    cursor: pointer;
 }
 
 .coments{
@@ -355,7 +363,7 @@
     background-color: rgb(27, 27, 27);
     width: 100%;
     height: 100%;
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 #form-post{
@@ -368,34 +376,36 @@
 }
 
 .fechaPost{
-    color: rgba(37, 43, 82, 0.787);
+    color: azure;
     font-size: 60px;
     float: right;
     width: 60px;
     height: 60px;
-    background-color: azure;
+    background-color: rgb(27, 27, 27);
     border-style: none;
 }
 
 .fechaPost:hover{
     color: red;
     transition: all .5s;
+    background-color: rgba(37, 43, 82, 0.787);
 }
 
 #form-post input{
     display: block;
     margin: 0 auto 20px;
     width: 500px;
-    height: 70px;
+    height: 50px;
     border-radius: 10px; 
     border-style: none;
 }
 
 #form-post .confirmar{
+    z-index: 3;
     border-radius: 20px;
     width: 250px;
     height: 50px;
-    background-color: rgba(37, 43, 82, 0.787);
+    background-color: rgb(37, 43, 82);
     color: azure;
     border-style: none;
 }
@@ -478,11 +488,10 @@
     text-align: justify;
 }
 
-#btn-do-post{
-    grid-area: btn;
+.box-do-btn{
+    grid-area: btn !important;
     margin-left: 30px;
-    width: 100px;
-    border: rgba(37, 43, 82, 0.787) 3px solid;
+    font-size: 100px;
 }
 
 #section-comentarios{
@@ -496,17 +505,16 @@
 
 #div-comentarios{
     grid-area: divcomentario;
-    display: grid;
-    grid-template-rows: 100px 1fr 100px;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: "autorc publicacaoc"
-                         "textoc textoc"
-                         "coracaoc coracaoc";
-    grid-gap: 0px;
+    display: block;
+    padding: 20px;
+    margin: 50px 15px;
+}
 
+.area-coments{
     border: solid 4px rgba(29, 35, 70, 0.445);
     padding: 20px;
     margin: 50px 15px;
+    overflow: hidden;
 }
 
 #autor-do-comentario{
@@ -526,16 +534,14 @@
     font-size: 16px;
     color: #333;
     font-style: italic;
-    margin-left: 200px;
-    width: 100%;
 }
 
 #comentario-do-post{
-    grid-area: textoc;
     color: #333;
-    width: 900px;
+    width: 800px !important; 
     padding: 30px;
     text-align: justify;
+    margin: 30px 0;
 }
 
 .coracao-do-comentario{
@@ -564,7 +570,20 @@
     display: block;
     margin: 0 auto 20px;
     width: 500px;
-    height: 200px;
+    height: 100px;
+    border-radius: 10px; 
+    border-style: none;
+}
+
+#github{
+    margin-left: 10px;
+}
+
+#inputNomeComent{
+    display: block;
+    margin: 0 auto 20px;
+    width: 500px;
+    height: 100px;
     border-radius: 10px; 
     border-style: none;
 }
